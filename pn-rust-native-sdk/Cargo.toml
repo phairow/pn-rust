@@ -1,0 +1,52 @@
+[package]
+name = "pn-rust-native-sdk"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+http = "0.2"
+hyper = { version = "0.14", default-features = false, features = [
+  "tcp",
+  "http1",
+  "http2",
+  "client",
+  "runtime",
+] }
+serde_json = "1.0"
+
+[dev-dependencies]
+async-trait = "0.1"
+cucumber = "0.11"
+tokio = { version = "1", default-features = false, features = [
+  "fs",
+  "macros",
+  "io-std",
+  "io-util",
+  "rt",
+  "rt-multi-thread",
+  "sync",
+  "time",
+  "test-util",
+] }
+
+[features]
+
+default = []
+
+runtime = [
+    "tokio/rt",
+    "tokio/time",
+]
+
+net = [
+  "hyper/tcp",
+  "hyper/http1",
+  "hyper/http2",
+  "hyper/client",
+  "hyper/runtime",
+]
+
+[[test]]
+name = "acceptance"
+path = "acceptance-test/acceptance.rs"
+harness = false  # allows Cucumber to print output instead of libtest

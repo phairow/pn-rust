@@ -1,10 +1,5 @@
 [workspace]
 
 members = [
-  "pn-rust-core",
-  "pn-rust-crypto",
-  "pn-rust-log",
-  "pn-rust-net",
-  "pn-rust-sdk",
-  "pn-rust-serde",
+  "pn-rust-native-sdk"
 ]
